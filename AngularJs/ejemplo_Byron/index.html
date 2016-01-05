@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="AppTvShow">
+<head>
+	<meta charset="utf-8"/>
+	<title>Hola Controller</title>
+
+	
+
+<script scr="https://code.jquery.com/jquery-1.11.3.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<!--script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script-->
+
+	
+
+	<!--
+	<script src="http://uno-de-piera.com/wp-content/uploads/2013/07/angular_resource.js"></script>	
+
+-->
+<script scr="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+	<!--script src="controller.js"></script-->
+</head>
+<body ng-controller="AppTvController">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          
+          <a class="navbar-brand" href="#">Series TV</a>
+        </div>
+        
+      </div>
+    </nav>
+
+    <div class="container" style="padding-top:55px;">
+
+     <button ng-click="load_All_Shows()">{{titulo}}</button>
+
+		
+		<div ng-repeat="show in allShowList">
+			
+			<div class="row jumbotron">
+		 	
+		 	<div class="col-md-3"><img ng-src="{{show.poster}}" style="width:200px;"></div>
+		 	<div class="col-md-9">
+		 		<h1>{{show.title}}</h1>
+		 		<h3>{{show.summary}}</h3>
+		 	</div>
+			
+			</div>
+
+		</div>
+
+    </div><!-- /.container -->
+<script type="text/javascript">
+	var app = angular.module('AppTvShow',[]);
+
+app.controller('AppTvController', function($scope, $http){
+	var uriTvShows='http://localhost:3000/api/tvshows/';
+	$scope.titulo='TV SHOWS';
+
+	$scope.load_All_Shows = function(){
+		console.log('Hiciste Click...')
+		$http.get(uriTvShows)
+		.success(function(showList){
+			console.log(showList);
+			$scope.allShowList=showList;			
+		})
+	};
+
+});
+
+</script>
+</body>
+</html>

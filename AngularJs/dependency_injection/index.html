@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--se coloca el nombre de nuestro modulo
+angular.module("MyFirstApp", [])-->
+<html ng-app="MyFirstApp">
+<head>
+<meta charset="utf-8">
+	<title>Hola mundo con AngularJs</title>
+	
+	<script src="Librerias/AngularJs1.4.x(stable)281215/angular.min.js"></script>
+	<!--se crea un nuevo src con el nombre de nuestro controllador-->
+	<script src="controladores/controller.js"></script>
+	
+</head>
+<!--se coloca el nombre de nuestro controlador
+app.controller('FirstController',function($scope))-->
+<body ng-controller="FirstController">
+<!-- {{ "Hola" + "Mundo"}} asi es como se escribe en pantalla con Angular-->
+<!-- la variable nomre se actualiza con el objeto $scope de nuestro controller-->
+<h3>Nuevo Comentario: </h3>
+<input type="text" ng-model="nuevoComentario.comentario">
+<br>
+<h3>Nuevo Username: </h3>
+<input type="text" ng-model="nuevoComentario.username">
+<br>
+<br>
+<button ng-click="agregarComentario()">Agregar Comentario</button>
+<br>
+<h3>Comentarios</h3>
+<ul>
+	<li ng-repeat="comentario in comentarios">
+        {{comentario.comentario}} - <strong>{{comentario.username}}</strong>
+	</li>
+</ul>
+
+</body>
+</html>
+
+<!--
+ng-repeat es como si se estuviera metiendo en un ciclo el objeto $scope. comentarios
+asignamos una variable local llamda comentario y la asignamos a comentarios mediante
+la palabra in.
+
+ng-click se manda a llamar mediante una funcion en el controlador.
+
+dependency injection, se pueden incrustar dentro de los controladoreso modulo a traez del nombre de las variables
+
+-->

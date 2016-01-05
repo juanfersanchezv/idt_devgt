@@ -1,0 +1,18 @@
+para crear un modulo tenemo que mandar a llamar
+angular.module
+	parametros que recive.
+		1 = nombre que le pongo al modulo entre " "
+		2 = modulos que depende el modulo que nosotros estramos creando.
+
+ya que angular esta modulizado, ya que no todo viene en la el root.
+
+ejemplo:
+	ngResource = consumir un objeto restfull, entre "" 
+
+si son varios modulos se ponene entre corchetes ["1","2"]
+
+luego de crear el modulo, se crean los controladores
+
+se pueden hacer mediante una variable o concatenarlos.
+
+

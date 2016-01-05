@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--se coloca el nombre de nuestro modulo
+angular.module("MyFirstApp", [])-->
+<html ng-app="MyFirstApp">
+<head>
+<meta charset="utf-8">
+	<title>Hola mundo con AngularJs</title>
+	
+	<script src="Librerias/AngularJs1.4.x(stable)281215/angular.min.js"></script>
+	<!--se crea un nuevo src con el nombre de nuestro controllador-->
+	<script src="controladores/controller.js"></script>
+	
+</head>
+<!--se coloca el nombre de nuestro controlador
+app.controller('FirstController',function($scope))-->
+<body ng-controller="FirstController">
+<!-- {{ "Hola" + "Mundo"}} asi es como se escribe en pantalla con Angular-->
+<!-- la variable nomre se actualiza con el objeto $scope de nuestro controller-->
+
+{{"Hola " + nombre}}
+
+</body>
+</html>

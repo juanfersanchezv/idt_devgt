@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--se coloca el nombre de nuestro modulo
+angular.module("MyFirstApp", [])-->
+<html ng-app="MyFirstApp">
+<head>
+<meta charset="utf-8">
+	<title>Http</title>
+	
+	<script src="../Librerias/AngularJs1.4.x(stable)281215/angular.min.js"></script>
+	<!--se crea un nuevo src con el nombre de nuestro controllador-->
+	<script src="controladores/controller.js"></script>
+	
+</head>
+<!--se coloca el nombre de nuestro controlador
+app.controller('FirstController',function($scope))-->
+<body ng-controller="FirstController">
+	<input type="text" ng-model="newPost.title">
+	<hr>
+	<textarea ng-model="newPost.body"></textarea> 
+	<hr>
+	<button ng-click="addPost()">Enviar</button>
+<ul>
+	<li ng-repeat="post in posts">
+		<h2>{{post.title}}</h2>
+		<p>
+			{{post.body}}
+		</p>
+		
+	</li>
+</ul>
+
+</body>
+</html>
